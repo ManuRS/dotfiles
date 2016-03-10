@@ -1,0 +1,105 @@
+
+-----------------
+    MIS TEMAS
+-----------------
+
+XFCE
+
+Tema:
+ - radiance flat aqua pro
+ - arc
+
+Iconos:
+numix circle
+
+Letra:
+droid sans 10 suavizada ligera 96
+
+Gestor de ventanas:
+ - bluebird
+ - arc
+
+Color barra superior:
+#2F2F66
+
+UNITY
+usar: unity tweak tool
+
+
+-----------------
+   MIS ATAJOS
+-----------------
+
+BASICOS Y TIPICOS
+
+Alt F4 --> cerrar
+Alt F9 --> minimizar
+Alt F10 --> maximizar
+Alt F11 --> pantalla completa
+Crtl Alt der/izq --> moverse escritorios
+Alt Tab --> cambiar ventana
+Alt space --> opciones
+Ctrl Alt D --> escritorio
+Ctrl Alt T --> terminal
+
+CAMBIOS PARA XFCE (en teclado)
+
+Launcher --> ctrl + super
+Consola flotante --> ctrl + space (xfce4-terminal --drop-down)
+Multitarea --> super
+    skippy-xd xfce (instalar por repo-ppa o aur, buscar en internet), funciona depende de la distro de una manera u otra:
+    Manera A)
+        en teclado: skippy-xd --activate-window-picker
+        en sesion e inicio: nombre: skippy-xd orden: skippy-xd --start-daemon
+    Manera B)
+        en teclado: skippy-xd
+
+
+-----------------
+APPS INTERESANTES
+-----------------
+
+Twitter:	
+ - Birdie
+ - Corebird
+
+Utilidades:
+ - clipman
+
+Juegos:
+ - chromium 
+ - tee words
+
+
+-----------------
+      MAS
+-----------------
+
+--fish o bash clasica como predeterminada
+chsh -s /usr/bin/fish
+chsh -s /bin/bash
+	
+
+-----------------
+ AÑADIR LOS TEMAS
+-----------------
+
+(no olvidar los update)
+
+Iconos:
+
+sudo apt-add-repository ppa:numix/ppa
+sudo apt-get install numix-icon-theme-circle
+
+Temas:
+
+sudo apt-add-repository ppa:ravefinity-project/ppa
+sudo apt-get install ambiance-flat-colors radiance-flat-colors 
+
+sudo add-apt-repository ppa:noobslab/themes
+
+sudo apt-get install mbuntu-y-icons-v4 mbuntu-y-ithemes-v4  
+sudo apt-get install flattastic-suite 
+
+https://github.com/horst3180/arc-theme
+http://gnome-look.org/content/show.php/Ultra-Flat?content=167473

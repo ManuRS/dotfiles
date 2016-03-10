@@ -1,0 +1,5 @@
+{
+    "cmd": ["/home/manu/anaconda/bin/python", "$file"],
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python"
+}
