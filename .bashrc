@@ -116,8 +116,13 @@ fi
 # added by Anaconda3 2.3.0 installer
 export PATH="/home/manu/anaconda/bin:$PATH"
 
+# alias
 alias fuck='sudo $(history -p \!\!)'
 alias q='exit'
+alias weather='curl wttr.in'
+alias tiempo='curl wttr.in'
+alias moon='curl wttr.in/Moon'
+
 echo -e "\033[1;37m"
 
 randimgvar="$(($RANDOM%6))"
