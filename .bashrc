@@ -119,6 +119,8 @@ export PATH="/home/manu/anaconda/bin:$PATH"
 # alias
 alias fuck='sudo $(history -p \!\!)'
 alias q='exit'
+alias c='clear'
+alias m='make'
 alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
 alias moon='curl wttr.in/Moon'
