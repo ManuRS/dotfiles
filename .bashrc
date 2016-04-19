@@ -125,19 +125,25 @@ alias moon='curl wttr.in/Moon'
 
 echo -e "\033[1;37m"
 
-randimgvar="$(($RANDOM%6))"
+randimgvar="$(($RANDOM%8))"
 if (($randimgvar==0)); then
-  figlet "       Manu    @    Dots"
-elif (($randimgvar==1)); then
-  figlet "       GNU    -    Linux"
-elif (($randimgvar==2)); then
-  figlet "       Xubuntu"
-elif (($randimgvar==3)); then
-  bash .manu.sh
-elif (($randimgvar==4)); then
   bash .invaders1.sh
-else
+elif (($randimgvar==1)); then
   bash .pacolor.sh
+elif (($randimgvar==2)); then
+  bash .hipnosapo.sh
+elif (($randimgvar==3)); then
+  bash .futurama.sh
+elif (($randimgvar==4)); then
+  bash .sunset.sh
+elif (($randimgvar==5)); then
+  bash .manu.sh
+elif (($randimgvar==6)); then
+  figlet "       Manu    @    Dots"
+elif (($randimgvar==7)); then
+  figlet "       GNU    -    Linux"
+else
+  figlet "       Xubuntu"
 fi
 
 echo
