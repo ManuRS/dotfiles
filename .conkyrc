@@ -89,7 +89,7 @@ TEXT
 ${font Goudy Bookletter 1911:style=Bold}MANU @ STREAM${font}                                       
          
    
-        Son las ${time %H}:${time %M} del ${time %A}${time %e} de ${time %B} de ${time %Y}
+        Son las ${time %H}:${time %M} del ${time %A} ${time %e} de ${time %B} de ${time %Y}
 
         GNU - Linux - Debian - Xubuntu (Ubuntu+Xfce)            
         Linux Kernel: ${kernel}
