@@ -102,7 +102,7 @@ ${font Goudy Bookletter 1911:style=Bold}MANU @ STREAM${font}
 
         ${cpugraph 10,170 00000 00000}
 
-${font Webdings:size=16}${font}        RAM:        $memperc%  ${membar 8,60} ${alignr} SWAP: $swapperc%
+${font Webdings:size=16}${font}        RAM(${memmax}):   $memperc%  ${membar 8,60} ${alignr} SWAP: $swapperc%
 ${font Webdings:size=16}${font}        Battery:   ${battery_percent BAT0}%  ${battery_bar 8,59 BAT0} ${alignr} T: ${acpitemp}ºC
 ${font Webdings:size=16}${font}        Free space: ${fs_free /}
 
@@ -122,7 +122,13 @@ ${font Goudy Bookletter 1911:style=Bold}PROCESSES${font}
             ${top name 2} $alignr ${top pid 2} ${top cpu 2}%
             ${top name 3} $alignr ${top pid 3} ${top cpu 3}%
             ${top name 4} $alignr ${top pid 4} ${top cpu 4}%
-            ${top name 5} $alignr ${top pid 5} ${top cpu 5}%
+
+        NAME   $alignr PID       RAM
+
+            ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem mem 1}%
+            ${top name 2} $alignr ${top pid 2} ${top cpu 2}%
+            ${top name 3} $alignr ${top pid 3} ${top cpu 3}%
+            ${top name 4} $alignr ${top pid 4} ${top cpu 4}%
 
 
 ${font Goudy Bookletter 1911:style=Bold}DROPBOX${font}
