@@ -126,9 +126,9 @@ ${font Goudy Bookletter 1911:style=Bold}PROCESSES${font}
         NAME   $alignr PID       RAM
 
             ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem mem 1}%
-            ${top name 2} $alignr ${top pid 2} ${top cpu 2}%
-            ${top name 3} $alignr ${top pid 3} ${top cpu 3}%
-            ${top name 4} $alignr ${top pid 4} ${top cpu 4}%
+            ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem mem 2}%
+            ${top_mem name 3} $alignr ${top_mem pid 3} ${top_mem mem 3}%
+            ${top_mem name 4} $alignr ${top_mem pid 4} ${top_mem mem 4}%
 
 
 ${font Goudy Bookletter 1911:style=Bold}DROPBOX${font}
