@@ -89,15 +89,15 @@ TEXT
 ${execi 300 curl -s "https://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+woeid+in+(select+woeid+from+geo.places(1)+where+text%3d%22madrid%22)+and+u%3d%22c%22" -o ~/.cache/weather.xml} ${font Goudy Bookletter 1911:style=Bold}Manu @ ${nodename}${font}
                                        
         GNU - Linux - Debian - Ubuntu (Unity)            
-        Kernel:  ${sysname} ${kernel}
-
-        CPU1:   ${cpu cpu1}%        CPU2:  ${cpu cpu2}%        CPU3:   ${cpu cpu3}%        CPU4:  ${cpu cpu4}%
-        CPU5:   ${cpu cpu5}%        CPU6:  ${cpu cpu6}%        CPU7:   ${cpu cpu7}%        CPU8:  ${cpu cpu8}%
-        #Freq1:  ${freq_g cpu1} GHz          Freq2:  ${freq_g cpu2} GHz
-        
+        Kernel:  ${sysname} ${kernel} 
+               
        ${execi 1000 cat /proc/cpuinfo |grep 'model name'|sort -u|awk -F: '{ print $2; }'|awk -F: \ '{print $1}'} 
         CPU Average:  ${cpu cpu0}%         ${alignr}${cpugraph 10,170 00000 00000}
         Freq:  ${freq_g cpu0} GHz
+        
+        CPU1:   ${cpu cpu1}%        CPU2:  ${cpu cpu2}%        CPU3:   ${cpu cpu3}%        CPU4:  ${cpu cpu4}%
+        CPU5:   ${cpu cpu5}%        CPU6:  ${cpu cpu6}%        CPU7:   ${cpu cpu7}%        CPU8:  ${cpu cpu8}%
+#Freq1:  ${freq_g cpu1} GHz          Freq2:  ${freq_g cpu2} GHz
 ${font Webdings:size=16}${font}        RAM(${memmax}):   $memperc%  ${membar 8,60} ${alignr} SWAP: $swapperc%
 ${font Webdings:size=16}${font}        Battery:   ${battery_percent BAT0}%  ${battery_bar 8,59 BAT0} ${alignr} T: ${acpitemp}ºC
 ${font Webdings:size=16}${font}        Free space: ${fs_free /}     ${alignr}Uptime: ${uptime}
