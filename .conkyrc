@@ -14,7 +14,7 @@ total_run_times 0
 # Create own window instead of using desktop (required in nautilus)
 own_window yes
 own_window_transparent no
-own_window_type normal
+own_window_type override #xfce: normal // ubuntu: override
 own_window_class conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 background no
