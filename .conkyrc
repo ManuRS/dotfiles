@@ -124,7 +124,7 @@ ${goto 80}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "h
 ${goto 80}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${goto 160}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${goto 240}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°${goto 320}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==4'}°
 
 
-${font Goudy Bookletter 1911:style=Bold}Wi-Fi${font}          SIGNAL = ${wireless_link_qual wlp3s0}%
+${font Goudy Bookletter 1911:style=Bold}Wi-Fi${font}          SIGNAL = ${wireless_link_qual_perc wlp3s0}%
 ${voffset 4}${font PizzaDude Bullets:size=14}${font}        Local IP:  ${addr wlp3s0}       ${alignr}Public IP:  ${execi 180 wget http://ipinfo.io/ip -qO -}
 ${voffset 4}${font PizzaDude Bullets:size=14}${font}        D tot: ${totaldown wlp3s0} ${alignr} D: ${downspeed wlp3s0} ${alignr} ${downspeedgraph wlp3s0 8,60 000000 000000}
 ${voffset 4}${font PizzaDude Bullets:size=14}${font}        U tot: ${totalup wlp3s0} ${alignr} U: ${upspeed wlp3s0} ${alignr} ${upspeedgraph wlp3s0 8,60 000000 000000}
