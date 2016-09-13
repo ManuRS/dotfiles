@@ -49,8 +49,13 @@ Control + Fx --> Moverse a escritorio x
 Control + Tab --> Pestañas app
 Alt + Tab --> Apps
 
-CAMBIOS PARA XFCE (en teclado)
+Control + Shift derecho --> parar touchopad
+Control + alt gr --> start touchopad
+La orden es: xinput set-prop 10 "Device Enabled" 1
+10 sacar de: xinput list
+1: on; 0: off
 
+CAMBIOS PARA XFCE (en teclado)
 Launcher --> ctrl + super
 Consola flotante --> ctrl + space (xfce4-terminal --drop-down)
 Multitarea --> super
