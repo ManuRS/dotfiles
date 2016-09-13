@@ -22,6 +22,8 @@ Gestor de ventanas:
 Color barra superior:
 #2F2F66
 
+DockbarX
+
 UNITY
 usar: unity tweak tool
 
