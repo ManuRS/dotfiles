@@ -127,7 +127,7 @@ alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
 
 echo -e "\033[1;37m"
 
-randimgvar="$(($RANDOM%8))"
+randimgvar="$(($RANDOM%9))"
 if (($randimgvar==0)); then
   bash .invaders1.sh
 elif (($randimgvar==1)); then
