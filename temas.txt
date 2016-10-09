@@ -83,6 +83,9 @@ Utilidades:
 Juegos:
  - chromium 
  - tee words
+ 
+ Calendario: 
+ - gcalcli (https://github.com/insanum/gcalcli) 
 
 
 -----------------
