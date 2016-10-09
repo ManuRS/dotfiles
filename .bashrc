@@ -113,9 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 2.3.0 installer
-export PATH="/home/manu/anaconda/bin:$PATH"
-
 # alias
 alias fuck='sudo $(history -p \!\!)'
 alias q='exit'
@@ -124,6 +121,9 @@ alias m='make'
 alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
 alias moon='curl wttr.in/Moon'
+alias cal='gcalcli calw 2 --monday --calendar mnrs94@gmail.com --military -w 10'
+alias cal4='gcalcli calw 4 --monday --calendar mnrs94@gmail.com --military -w 10'
+alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
 
 echo -e "\033[1;37m"
 
@@ -141,11 +141,11 @@ elif (($randimgvar==4)); then
 elif (($randimgvar==5)); then
   bash .manu.sh
 elif (($randimgvar==6)); then
-  figlet "       Manu    @    Dots"
+  figlet "       Manu    @    Aspire"
 elif (($randimgvar==7)); then
   figlet "       GNU    -    Linux"
 else
-  figlet "       Xubuntu"
+  figlet "       Ubuntu"
 fi
 
 echo
@@ -153,3 +153,8 @@ echo -e "\e[1;37m Bienvenido Manu"
 #PS1=' \[\e[1;31m\]\u\[\e[m\]\[\e[1;34m\]@\[\e[m\]\[\e[1;33m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;34m\]\$\[\e[m\]\[\e[m\]\[\e[0;32m\] '
 PS1='\[\e[1;37m\]\[\e[46m\] \u@\h \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '
 echo
+
+# added by Anaconda3 2.3.0 installer
+export PATH="/home/manu/anaconda/bin:$PATH"
+# added by Anaconda2 4.2.0 installer
+export PATH="/home/manu/anaconda2/bin:$PATH"
