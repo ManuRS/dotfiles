@@ -85,8 +85,8 @@ override_utf8_locale yes
 use_spacer none
 
 TEXT
-#Pilla los datos del tiempo de internet
 ${execi 300 curl -s "https://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+woeid+in+(select+woeid+from+geo.places(1)+where+text%3d%22madrid%22)+and+u%3d%22c%22" -o ~/.cache/weather.xml} ${font Goudy Bookletter 1911:style=Bold}Manu @ ${nodename}${font}
+#Pilla los datos del tiempo de internet
                                        
         GNU - Linux - Debian - Ubuntu (Unity)            
         Kernel:  ${sysname} ${kernel} 
@@ -98,9 +98,10 @@ ${execi 300 curl -s "https://query.yahooapis.com/v1/public/yql?q=select+*+from+w
         CPU1:   ${cpu cpu1}%        CPU2:  ${cpu cpu2}%        CPU3:   ${cpu cpu3}%        CPU4:  ${cpu cpu4}%
         CPU5:   ${cpu cpu5}%        CPU6:  ${cpu cpu6}%        CPU7:   ${cpu cpu7}%        CPU8:  ${cpu cpu8}%
 #Freq1:  ${freq_g cpu1} GHz          Freq2:  ${freq_g cpu2} GHz
-${font Webdings:size=16}${font}        RAM(${memmax}):   $memperc%  ${membar 8,60} ${alignr} SWAP: $swapperc%
-${font Webdings:size=16}${font}        Battery:   ${battery_percent BAT0}%  ${battery_bar 8,59 BAT0} ${alignr} T: ${acpitemp}ºC
-${font Webdings:size=16}${font}        Free space: ${fs_free /}     ${alignr}Uptime: ${uptime}
+
+${font}        RAM(${memmax}):   $memperc%  ${membar 8,60} ${alignr} SWAP: $swapperc%
+${font PizzaDude Bullets:size=9}${font}${font}        Battery:   ${battery_percent BAT0}%  ${battery_bar 8,59 BAT0} ${alignr} T: ${acpitemp}ºC
+${font PizzaDude Bullets:size=9}${font}${font}        Free space: ${fs_free /}     ${alignr}Uptime: ${uptime}
 
 ${font Goudy Bookletter 1911:style=Bold}Tiempo${font}
 
@@ -111,12 +112,12 @@ ${font Goudy Bookletter 1911:style=Bold}Tiempo${font}
                             Humedad ${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%, Viento ${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | grep -o "[^\"]*" | awk 'NR==2'}km/h
 
 #Imagen hoy
-${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather.png}${image ~/.cache/weather.png -p 8,210 -s 75x75 -n}
+${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather.png}${image ~/.cache/weather.png -p 8,190 -s 75x75 -n}
 
 #Imprime los dias
 ${goto 40}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${goto 120}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}${goto 200}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3' | tr '[a-z]' '[A-Z]'}${goto 280}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==4' | tr '[a-z]' '[A-Z]'}
 #Iconos de los dias
-${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2').png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 7,298 -s 55x55 -n}${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3').png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 87,298 -s 55x55 -n}${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==4').png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 167,298 -s 55x55 -n}${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==5').png ~/.cache/weather-4.png}${image ~/.cache/weather-4.png -p 247,298 -s 55x55 -n}
+${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2').png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 7,281 -s 55x55 -n}${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3').png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 87,281 -s 55x55 -n}${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==4').png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 167,281 -s 55x55 -n}${execi 300 cp -f ~/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==5').png ~/.cache/weather-4.png}${image ~/.cache/weather-4.png -p 247,281 -s 55x55 -n}
 ## Maximas
 ${goto 80}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${goto 160}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${goto 240}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°${goto 320}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==4'}°
 
@@ -125,9 +126,10 @@ ${goto 80}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "l
 
 
 ${font Goudy Bookletter 1911:style=Bold}Wi-Fi${font}          SIGNAL = ${wireless_link_qual_perc wlp3s0}%
-${voffset 4}${font PizzaDude Bullets:size=14}${font}        Local IP:  ${addr wlp3s0}       ${alignr}Public IP:  ${execi 180 wget http://ipinfo.io/ip -qO -}
-${voffset 4}${font PizzaDude Bullets:size=14}${font}        D tot: ${totaldown wlp3s0} ${alignr} D: ${downspeed wlp3s0} ${alignr} ${downspeedgraph wlp3s0 8,60 000000 000000}
-${voffset 4}${font PizzaDude Bullets:size=14}${font}        U tot: ${totalup wlp3s0} ${alignr} U: ${upspeed wlp3s0} ${alignr} ${upspeedgraph wlp3s0 8,60 000000 000000}
+
+${font}        Local IP:  ${addr wlp3s0}       ${alignr}Public IP:  ${execi 180 wget http://ipinfo.io/ip -qO -}
+${font PizzaDude Bullets:size=9}${font}        D tot: ${totaldown wlp3s0} ${alignr} D: ${downspeed wlp3s0} ${alignr} ${downspeedgraph wlp3s0 8,60 000000 000000}
+${font PizzaDude Bullets:size=9}${font}        U tot: ${totalup wlp3s0} ${alignr} U: ${upspeed wlp3s0} ${alignr} ${upspeedgraph wlp3s0 8,60 000000 000000}
 
 ${font Goudy Bookletter 1911:style=Bold}Procesos${font}       (${processes})
 
@@ -135,7 +137,7 @@ ${font Goudy Bookletter 1911:style=Bold}Procesos${font}       (${processes})
             ${top name 1} $alignr ${top pid 1} ${top cpu 1}%
             ${top name 2} $alignr ${top pid 2} ${top cpu 2}%
             ${top name 3} $alignr ${top pid 3} ${top cpu 3}%
-
+            
         NAME   $alignr PID       RAM
             ${top_mem name 1} $alignr ${top_mem pid 1} ${top_mem mem 1}%
             ${top_mem name 2} $alignr ${top_mem pid 2} ${top_mem mem 2}%
@@ -143,12 +145,19 @@ ${font Goudy Bookletter 1911:style=Bold}Procesos${font}       (${processes})
 
 ${font Goudy Bookletter 1911:style=Bold}Dropbox${font}
 
-        ${execi 10 dropbox status}
+${execi 10 dropbox status | sed 's/^/        /g'}
                 
 ${font Goudy Bookletter 1911:style=Bold}Noticias${font}  
 
         ${rss http://www.publico.es/rss/ 10 item_title 1}
         ${rss http://www.publico.es/rss/ 10 item_title 2}
         ${rss http://www.publico.es/rss/ 10 item_title 3}
+
+${font Goudy Bookletter 1911:style=Bold}Calendario${font} 
+         
+${execi 5 gcalcli agenda --calendar mnrs94@gmail.com --military --nocolor | sed '/^$/d' | 
+   sed 's/^/        /g'}
+        
+
         
         
