@@ -1,7 +1,7 @@
 # Use Xft?
 use_xft yes
 xftfont OFL Sorts Mill Goudy:size=7,99
-xftalpha 0.8
+xftalpha 0.99
 text_buffer_size 2048
 
 # Update interval in seconds
@@ -155,8 +155,7 @@ ${font Goudy Bookletter 1911:style=Bold}Noticias${font}
 
 ${font Goudy Bookletter 1911:style=Bold}Calendario${font} 
          
-${execi 5 gcalcli agenda --calendar mnrs94@gmail.com --military --nocolor | sed '/^$/d' | 
-   sed 's/^/        /g'}
+${font DejaVu Sans Mono:size=8}${execi 3500 gcalcli agenda --calendar mnrs94@gmail.com --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
         
 
         
