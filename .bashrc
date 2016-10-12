@@ -125,6 +125,9 @@ alias musica='mocp'
 alias cal='gcalcli calw 2 --monday --calendar mnrs94@gmail.com --military -w 10'
 alias cal4='gcalcli calw 4 --monday --calendar mnrs94@gmail.com --military -w 10'
 alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
+#ñapas
+alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce
+alias manuconky='killall conky && conky &'
 
 echo -e "\033[1;37m"
 
