@@ -1,4 +1,3 @@
-
 -----------------
       TEMAS
 -----------------
@@ -95,6 +94,9 @@ Juegos:
 --fish o bash clasica como predeterminada
 chsh -s /usr/bin/fish
 chsh -s /bin/bash
+
+--optimizar ordenadores con ssd
+https://slimbook.es/tutoriales/linux/93-optimizar-nuestro-ssd-en-linux
 	
 
 -----------------
