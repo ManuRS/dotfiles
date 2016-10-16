@@ -125,9 +125,13 @@ alias musica='mocp'
 alias cal='gcalcli calw 2 --monday --calendar mnrs94@gmail.com --military -w 10'
 alias cal4='gcalcli calw 4 --monday --calendar mnrs94@gmail.com --military -w 10'
 alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
+alias off='sudo halt'
 #ñapas
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce
 alias manuconky='killall conky && conky &'
+#i3
+alias manui3salir='i3-msg exit'
+alias manui3lock='i3lock --image="/home/manu/Dropbox/Otros/fondos/wall1600x1200.png"'
 
 echo -e "\033[1;37m"
 
