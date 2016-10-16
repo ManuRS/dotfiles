@@ -32,5 +32,5 @@ Junto con ubuntu 16.04 (unity 7) parece que ha ido todo bien
 Junto con xfce hay problemillas:
 -Me hacen falta dos .conkyrc (tamaño de las letras)
 -Uno lo carga el inicio de xfce (conky -p 10 -c /home/manu/.conkyrc2)
--Otro en el archivo de configuracion de i3 (lo normal vamos)2
+-Otro en el archivo de configuracion de i3 (lo normal vamos)
 
