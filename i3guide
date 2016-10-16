@@ -1,0 +1,27 @@
+GUIA DE MANU PARA i3
+
+- Super + enter -> terminal
+- Super + flechas -> Moverte entre areas
+- Super + shift + flechas -> Mover la ventana a otro area
+- Super + d -> abrir app
+	
+- Super e/s/w -> cambiar estilo del area
+- Super + f -> fullscreen
+- Super + shift + q -> cerrar
+
+- Super + numero -> escritorio
+- Super + shift + numero -> mover a escritorio
+- Super + b -> ultimo escritorio
+- Super + Ctrl + der/izq -> next/prev escritorio
+
+- Super + Shift + e -> salir de i3
+
+MAS
+
+El tema se cambia instalando: lxappearance
+Con ese programa ya se cambia
+Como explorador recomiendo thunar
+
+Ruta de config: ~/.config/i3/config
+Ruta de i3status(la barra de abajo): /etc/i3status.conf 
+
