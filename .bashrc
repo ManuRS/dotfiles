@@ -113,11 +113,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# alias
+#**********************#
+#**       MANU       **#
+#**********************#
+
+#########################
+##        ALIAS        ##
+#########################
+
+#Terminal
 alias fuck='sudo $(history -p \!\!)'
 alias q='exit'
 alias c='clear'
 alias m='make'
+alias off='sudo halt'
+#Terminal apps
 alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
 alias moon='curl wttr.in/Moon'
@@ -125,15 +135,25 @@ alias musica='mocp'
 alias cal='gcalcli calw 2 --monday --calendar mnrs94@gmail.com --military -w 10'
 alias cal4='gcalcli calw 4 --monday --calendar mnrs94@gmail.com --military -w 10'
 alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
-alias off='sudo halt'
 #ñapas
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce
 alias manuconky='killall conky && conky &'
 #i3
 alias manui3salir='i3-msg exit'
 alias manui3lock='i3lock --image="/home/manu/Dropbox/Otros/fondos/wall1600x1200.png"'
+#Brillo
+alias bup='sudo bash .bup.sh'
+alias bdown='sudo bash .bdown.sh'
+alias lup='sudo bash .bup.sh'
+alias ldown='sudo bash .bdown.sh'
+
+#########################
 
 echo -e "\033[1;37m"
+
+#########################
+##       PORTADAS      ##
+#########################
 
 randimgvar="$(($RANDOM%9))"
 if (($randimgvar==0)); then
@@ -158,9 +178,18 @@ fi
 
 echo
 echo -e "\e[1;37m Bienvenido Manu"
+
+#########################
+##  PALETA DE COLORES  ##
+#########################
+
 #PS1=' \[\e[1;31m\]\u\[\e[m\]\[\e[1;34m\]@\[\e[m\]\[\e[1;33m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;34m\]\$\[\e[m\]\[\e[m\]\[\e[0;32m\] '
 PS1='\[\e[1;37m\]\[\e[46m\] \u@\h \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '
 echo
+
+#########################
+##        COSAS        ##
+#########################
 
 # added by Anaconda3 2.3.0 installer
 export PATH="/home/manu/anaconda/bin:$PATH"
