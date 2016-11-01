@@ -128,6 +128,7 @@ ${goto 80}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "l
 ${font Goudy Bookletter 1911:style=Bold}Wi-Fi${font}          SIGNAL = ${wireless_link_qual_perc wlp3s0}%
 
 ${font}        Local IP:  ${addr wlp3s0}       ${alignr}Public IP:  ${execi 180 wget http://ipinfo.io/ip -qO -}
+${font PizzaDude Bullets:size=9}${font}        Ping: ${execi 30 ping www.google.com -c 1 | grep time= | rev | cut -c -6 | rev}
 ${font PizzaDude Bullets:size=9}${font}        D tot: ${totaldown wlp3s0} ${alignr} D: ${downspeed wlp3s0} ${alignr} ${downspeedgraph wlp3s0 8,60 000000 000000}
 ${font PizzaDude Bullets:size=9}${font}        U tot: ${totalup wlp3s0} ${alignr} U: ${upspeed wlp3s0} ${alignr} ${upspeedgraph wlp3s0 8,60 000000 000000}
 
