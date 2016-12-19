@@ -138,8 +138,8 @@ alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
 alias agenda='gcalcli agenda --calendar mnrs94@gmail.com --military'
 alias tron='ssh sshtron.zachlatta.com'
 #ñapas
-alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce
-alias manuconky='killall conky && conky &'
+alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce, para que se vea el icono
+alias manuconky='killall conky && conky &' #si hay inicio automatico, hay que hacerlo para que tire el calendario, recomiendo desactivar inicio automatico y solo hacer 'conky &'
 #i3
 alias manui3salir='i3-msg exit'
 alias manui3lock='i3lock --image="/home/manu/Dropbox/Otros/fondos/wall1600x1200.png"'
@@ -148,6 +148,12 @@ alias bup='sudo bash .bup.sh'
 alias bdown='sudo bash .bdown.sh'
 alias lup='sudo bash .bup.sh'
 alias ldown='sudo bash .bdown.sh'
+#seguridad
+alias loginssh='sudo cat /var/log/auth.log | grep "password"'
+alias loginjupyter='cat nohup.out | grep "login"'
+#otros
+alias initv='sudo teamviewer --daemon start'
+alias matlab='./matlab/bin/matlab'
 
 #########################
 
