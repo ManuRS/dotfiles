@@ -140,6 +140,7 @@ alias tron='ssh sshtron.zachlatta.com'
 #ñapas
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce, para que se vea el icono
 alias manuconky='killall conky && conky &' #si hay inicio automatico, hay que hacerlo para que tire el calendario, recomiendo desactivar inicio automatico y solo hacer 'conky &'
+alias manuinicios='DBUS_SESSION_BUS_ADDRESS="" dropbox start && nohup conky -c /home/manu/.conkyrc &'
 #i3
 alias manui3salir='i3-msg exit'
 alias manui3lock='i3lock --image="/home/manu/Dropbox/Otros/fondos/wall1600x1200.png"'
