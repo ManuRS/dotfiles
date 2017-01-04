@@ -132,15 +132,11 @@ alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 alias musica='mocp'
-alias cal='gcalcli calw 2 --monday --calendar mnrs94@gmail.com --military -w 10'
-alias cal4='gcalcli calw 4 --monday --calendar mnrs94@gmail.com --military -w 10'
-alias calm='gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
-alias agenda='gcalcli agenda --calendar mnrs94@gmail.com --military'
+alias cal='cambiarpython2 && gcalcli calw 2 --monday --calendar mnrs94@gmail.com --military -w 10'
+alias cal4='cambiarpython2 && gcalcli calw 4 --monday --calendar mnrs94@gmail.com --military -w 10'
+alias calm='cambiarpython2 && gcalcli calm --monday --calendar mnrs94@gmail.com --military -w 10'
+alias agenda='cambiarpython2 && gcalcli agenda --calendar mnrs94@gmail.com --military'
 alias tron='ssh sshtron.zachlatta.com'
-#ñapas
-alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #solo para xfce, para que se vea el icono
-alias manuconky='killall conky && conky &' #si hay inicio automatico, hay que hacerlo para que tire el calendario, recomiendo desactivar inicio automatico y solo hacer 'conky &'
-alias manuinicios='DBUS_SESSION_BUS_ADDRESS="" dropbox start && nohup conky -c /home/manu/.conkyrc &'
 #i3
 alias manui3salir='i3-msg exit'
 alias manui3lock='i3lock --image="/home/manu/Dropbox/Otros/fondos/wall1600x1200.png"'
@@ -151,20 +147,31 @@ alias lup='sudo bash .bup.sh'
 alias ldown='sudo bash .bdown.sh'
 #seguridad
 alias loginssh='sudo cat /var/log/auth.log | grep "password"'
-alias loginjupyter='cat nohup.out | grep "login"'
+alias loginjupyter='cat salida_jupyter.txt | grep "login"'
 #otros
 alias initv='sudo teamviewer --daemon start'
 alias matlab='./matlab/bin/matlab'
+alias notificaciones='/usr/bin/python3 an2linuxserver.py'
+alias conky='cambiarpython2 && nohup conky > salida_conky.txt &'
+alias initjupyter='nohup jupyter-notebook > salida_jupyter.txt &'
+#python
+alias cambiarpython2='export PATH="/home/manur/anaconda2/bin:$PATH" && auxpyPS1_2'
+alias cambiarpython3='export PATH="/home/manur/anaconda2/envs/anaconda3/bin:$PATH" && auxpyPS1_3'
+alias auxpyPS1_2="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py2 \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
+alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
+#para pequeño
+alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #para que en xfce se vea el icono
+alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no queremos usarlos normalmente
 
 #########################
-
-echo -e "\033[1;37m"
 
 #########################
 ##       PORTADAS      ##
 #########################
+echo -e "\033[1;37m"
 
 randimgvar="$(($RANDOM%9))"
+
 if (($randimgvar==0)); then
   bash .invaders1.sh
 elif (($randimgvar==1)); then
@@ -188,19 +195,21 @@ fi
 echo
 echo -e "\e[1;37m Bienvenido Manu"
 
-#########################
-##  PALETA DE COLORES  ##
-#########################
-
+##################################
+##  PALETA DE COLORES Y PYTHON  ##
+##################################
 #PS1=' \[\e[1;31m\]\u\[\e[m\]\[\e[1;34m\]@\[\e[m\]\[\e[1;33m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;34m\]\$\[\e[m\]\[\e[m\]\[\e[0;32m\] '
-PS1='\[\e[1;37m\]\[\e[46m\] \u@\h \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '
+#PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '
 echo
+cambiarpython3
 
 #########################
 ##        COSAS        ##
 #########################
 
-# added by Anaconda3 2.3.0 installer
-export PATH="/home/manu/anaconda/bin:$PATH"
 # added by Anaconda2 4.2.0 installer
-export PATH="/home/manu/anaconda2/bin:$PATH"
+#export PATH="/home/manu/anaconda2/bin:$PATH"
+
+#if [[ $TERMINIX_ID ]]; then
+#        source /etc/profile.d/vte.sh
+#fi
