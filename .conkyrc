@@ -85,9 +85,8 @@ override_utf8_locale yes
 use_spacer none
 
 TEXT
-${execi 60 curl -s "https://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+woeid+in+(select+woeid+from+geo.places(1)+where+text%3d%22madrid%22)+and+u%3d%22c%22" -o ~/.cache/weather.xml} ${font Goudy Bookletter 1911:style=Bold}Manu @ ${nodename}${font}
-#Pilla los datos del tiempo de internet
-                                       
+${font Goudy Bookletter 1911:style=Bold}Manu @ ${nodename}${font}  
+                                                  
         GNU - Linux - Debian - Ubuntu (Unity)            
         Kernel:  ${sysname} ${kernel} 
                
@@ -154,7 +153,10 @@ ${font Goudy Bookletter 1911:style=Bold}Noticias${font}
 ${font Goudy Bookletter 1911:style=Bold}Calendario${font} 
          
 ${font DejaVu Sans Mono:size=8}${execi 3500 gcalcli agenda --calendar mnrs94@gmail.com --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
-        
+
+#Pilla los datos del tiempo de internet
+${execi 60 curl -s "https://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+woeid+in+(select+woeid+from+geo.places(1)+where+text%3d%22madrid%22)+and+u%3d%22c%22" -o ~/.cache/weather_aux.xml} 
+${execi 20 if grep --quiet yweather ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}  
 
         
         
