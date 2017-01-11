@@ -126,7 +126,7 @@ alias fuck='sudo $(history -p \!\!)'
 alias q='exit'
 alias c='clear'
 alias m='make'
-alias off='shutdown now'
+alias off='sudo shutdown now'
 #Terminal apps
 alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
