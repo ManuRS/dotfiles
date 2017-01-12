@@ -213,3 +213,15 @@ cambiarpython3
 #if [[ $TERMINIX_ID ]]; then
 #        source /etc/profile.d/vte.sh
 #fi
+
+#########################
+##        ALBERT        ##
+#########################
+nohup albert > /dev/null 2>&1&
+disown
+
+#######################
+## MARIO DANDO POR   ##
+##	CULO	     ##
+######################
+#yasiti
