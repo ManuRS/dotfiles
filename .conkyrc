@@ -152,7 +152,7 @@ ${font Goudy Bookletter 1911:style=Bold}Noticias${font}
 
 ${font Goudy Bookletter 1911:style=Bold}Calendario${font} 
          
-${font DejaVu Sans Mono:size=8}${execi 3500 gcalcli agenda --calendar mnrs94@gmail.com --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
+${font DejaVu Sans Mono:size=8}${execi 3500 gcalcli agenda --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
 
 #Pilla los datos del tiempo de internet
 ${execi 60 curl -s "https://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+woeid+in+(select+woeid+from+geo.places(1)+where+text%3d%22madrid%22)+and+u%3d%22c%22" -o ~/.cache/weather_aux.xml} 
