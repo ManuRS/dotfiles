@@ -158,8 +158,8 @@ alias manuinicion='initjupyter && conky'
 alias android-studio="nohup sh /home/manur/android-studio/bin/studio.sh > android-studio.txt &"
 alias di="espeak -v spanish"
 #python
-alias cambiarpython2='alias py=python2 && alias python=python2 && export PATH="/home/manur/anaconda2/bin:$PATH" && auxpyPS1_2'
-alias cambiarpython3='alias py=python3 && alias python=python3 && export PATH="/home/manur/anaconda2/envs/anaconda3/bin:$PATH" && auxpyPS1_3'
+alias cambiarpython2='alias py=python2 && alias python=python2 && export PATH="/home/manur/anaconda3/envs/anaconda2/bin:$PATH" && auxpyPS1_2'
+alias cambiarpython3='alias py=python3 && alias python=python3 && export PATH="/home/manur/anaconda3/bin:$PATH" && auxpyPS1_3'
 alias auxpyPS1_2="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[46m\] py2 \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
 alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
 #para pequeño
