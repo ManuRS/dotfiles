@@ -105,10 +105,10 @@ ${font PizzaDude Bullets:size=9}${font}${font}        Free space: ${fs_free /}  
 ${font Goudy Bookletter 1911:style=Bold}Weather${font}
 
 
-                            Son las ${time %H}:${time %M} del ${time %A} ${time %e} de ${time %B} de ${time %Y}
+                            ${font :style=Bold}${time %H}:${time %M}${font} ${time %A}, ${time %B} ${time %e}, ${time %Y}
         #Localización, descripcion y temperatura
                     ${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} - ${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | tr '[a-z]' '[A-Z]' | awk 'NR==1{print $1}'} ${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C
-                            Humedad ${execi 60 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%, Viento ${execi 60 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | grep -o "[^\"]*" | awk 'NR==2'}km/h
+                            Humidity ${execi 60 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%, Wind ${execi 60 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | grep -o "[^\"]*" | awk 'NR==2'}km/h
 
 #Imagen hoy
 ${execi 60 cp -f ~/.conky-google-now/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather.png}${image ~/.cache/weather.png -p 8,190 -s 75x75 -n}
