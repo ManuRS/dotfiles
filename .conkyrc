@@ -102,7 +102,7 @@ ${font}        RAM(${memmax}):   $memperc%  ${membar 8,60} ${alignr} SWAP: $swap
 ${font PizzaDude Bullets:size=9}${font}${font}        Battery:   ${battery_percent BAT0}%  ${battery_bar 8,59 BAT0} ${alignr} T: ${acpitemp}ºC
 ${font PizzaDude Bullets:size=9}${font}${font}        Free space: ${fs_free /}     ${alignr}Uptime: ${uptime}
 
-${font Goudy Bookletter 1911:style=Bold}Tiempo${font}
+${font Goudy Bookletter 1911:style=Bold}Weather${font}
 
 
                             Son las ${time %H}:${time %M} del ${time %A} ${time %e} de ${time %B} de ${time %Y}
@@ -124,14 +124,14 @@ ${goto 80}${execi 60 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "hi
 ${goto 80}${execi 60 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${goto 160}${execi 60 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${goto 240}${execi 60 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°${goto 320}${execi 60 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==4'}°
 
 
-${font Goudy Bookletter 1911:style=Bold}Wi-Fi${font}          SIGNAL = ${wireless_link_qual_perc wlp3s0}%           PING = ${execi 60 ping www.google.com -c 1 | grep time= | rev | cut -c -6 | rev}
+${font Goudy Bookletter 1911:style=Bold}Network${font}          SIGNAL = ${wireless_link_qual_perc wlp3s0}%           PING = ${execi 60 ping www.google.com -c 1 | grep time= | rev | cut -c -6 | rev}
 ${font}        Local IP:  ${addr wlp3s0}       ${alignr}Public IP:  ${execi 180 wget http://ipinfo.io/ip -qO -}
 ${font PizzaDude Bullets:size=9}${font}        D tot: ${totaldown wlp3s0} ${alignr} D: ${downspeed wlp3s0} ${alignr} ${downspeedgraph wlp3s0 8,60 000000 000000}
 ${font PizzaDude Bullets:size=9}${font}        U tot: ${totalup wlp3s0} ${alignr} U: ${upspeed wlp3s0} ${alignr} ${upspeedgraph wlp3s0 8,60 000000 000000}
 
 ${font}${execi 1800 speedtest-cli | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/        /g'}
 
-${font Goudy Bookletter 1911:style=Bold}Procesos${font}       (${processes})
+${font Goudy Bookletter 1911:style=Bold}Processes${font}       (${processes})
 
         NAME   $alignr PID       CPU
             ${top name 1} $alignr ${top pid 1} ${top cpu 1}%
@@ -144,13 +144,13 @@ ${font Goudy Bookletter 1911:style=Bold}Dropbox${font}
 
 ${execi 10 dropbox status | sed 's/^/        /g'}
                 
-${font Goudy Bookletter 1911:style=Bold}Noticias${font}  
+${font Goudy Bookletter 1911:style=Bold}News${font}  
 
         ${rss http://www.publico.es/rss/ 10 item_title 1}
         ${rss http://www.publico.es/rss/ 10 item_title 2}
         ${rss http://www.publico.es/rss/ 10 item_title 3}
 
-${font Goudy Bookletter 1911:style=Bold}Calendario${font} 
+${font Goudy Bookletter 1911:style=Bold}Calendar${font} 
          
 ${font DejaVu Sans Mono:size=8}${execi 3500 gcalcli agenda --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
 
