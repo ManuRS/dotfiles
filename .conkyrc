@@ -104,7 +104,7 @@ ${font PizzaDude Bullets:size=9}${font}${font}        Free space: ${fs_free /}  
 ${font Goudy Bookletter 1911:style=Bold}Weather${font}
 
 
-                            				${font :style=Bold}${time %H}:${time %M} ${font} ${time %A}, ${time %B} ${time %e}, ${time %Y}
+                            				${font :style=Bold}${time %H}:${time %M} ${font} ${time %A}, ${time %e} de ${time %B}, ${time %Y}
         				#Localización, descripcion y temperatura
 
                 			${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} - ${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | tr '[a-z]' '[A-Z]' | awk 'NR==1{print $1}'} ${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C
