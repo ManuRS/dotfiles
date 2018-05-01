@@ -169,6 +169,7 @@ alias auxpyPS1_2="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[46m\] py2 \
 alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
 #para pequeño
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #para que en xfce se vea el icono
+alias manudropbox_new='dropbox stop && dbus-launch dropbox start' #para que en xfce se vea el icono
 alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no queremos usarlos normalmente
 
 #########################
