@@ -2,9 +2,12 @@
 
 Personal linux config files
 
-Jan-2019: Moved from Yahoo Weather to OpenWeatherMap
+Jan-2019: Moved from Yahoo Weather to OpenWeatherMap.
+
 Since Yahoo Weather dropped support for API v1 and now a key is needed I change to OpenWeatherMap.
+
 This service also need key but is very easy to get one.
+
 - Yahoo weather (not working): .conkyrc-LEGACY 
 - OpenWeatherMap: .conkyrc
 
