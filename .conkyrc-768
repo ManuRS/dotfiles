@@ -147,7 +147,11 @@ ${font DejaVu Sans Mono:size=8}${execpi 10 gcalcli --nocolor --calendar Cosillas
 
 #Pilla los datos del tiempo de internet
 
+<<<<<<< HEAD
 ${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=XXX" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
+=======
+${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=79bc4ac2164d3044ae943d2bce748bd0" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
+>>>>>>> d3f8603532b3d4d29df3665d04d54ce8192927e0
 
 ${execi 60 if grep --quiet weatherdata ~/.cache/weather_current_aux.xml; then cp ~/.cache/weather_current_aux.xml ~/.cache/weather_current.xml; fi}  
 
