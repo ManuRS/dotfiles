@@ -99,7 +99,7 @@ ${font PizzaDude Bullets:size=9}${font}        Free space: ${fs_free /} / ${fs_s
 
 ${font Goudy Bookletter 1911:style=Bold}Weather forecast${font}
 
-                                 ${font PizzaDude Bullets:size=9}${font}${font :style=Bold}${time %H}:${time %M}${font}   (${time %A}, ${time %e} de ${time %B} de ${time %Y})
+                                 ${font PizzaDude Bullets:size=9}${font}${font :style=Bold}${time %H}:${time %M}${font}   ${execi 500 date +"%^A, %e de %^B de %Y"}
                  # Localización, descripcion y temperatura
                  ${font PizzaDude Bullets:size=9}${font}${execi 60 grep "temperature" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4 | awk '{print int($1+0.5)}'}ºC - ${execi 60 grep "symbol" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4 | tr [[:lower:]] [[:upper:]]}  - Humidity ${execi 60 grep "humidity" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f2}%
                  # Humedad y viento
