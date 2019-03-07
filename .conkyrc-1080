@@ -1,7 +1,7 @@
 # Use Xft?
 use_xft yes
-xftfont OFL Sorts Mill Goudy:size=8
-xftalpha 0.8
+xftfont OFL Sorts Mill Goudy:size=9
+xftalpha 1.0
 text_buffer_size 2048
 
 # Update interval in seconds
@@ -13,8 +13,8 @@ total_run_times 0
 
 # Create own window instead of using desktop (required in nautilus)
 own_window yes
-own_window_transparent no
-own_window_type override #xfce: normal // ubuntu: override
+own_window_transparent yes
+own_window_type normal #xfce: normal // ubuntu: override
 own_window_class conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 background no
@@ -26,7 +26,7 @@ double_buffer yes
 
 # Minimum size of text area
 minimum_size 170 0
-maximum_width 370
+maximum_width 470
 
 # Draw shades?
 draw_shades no
@@ -41,7 +41,7 @@ draw_borders no
 stippled_borders 0
 
 # border margins
-border_inner_margin 15
+border_inner_margin 10
 
 # border width
 border_width 1
@@ -61,8 +61,8 @@ alignment top_right
 
 # Gap between borders of screen and text
 # same thing as passing -x at command line
-gap_x 110
-gap_y 16
+gap_x 70
+gap_y 5
 
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -85,91 +85,82 @@ override_utf8_locale yes
 use_spacer none
 
 TEXT
-${font Goudy Bookletter 1911:style=Bold}Tammuz${font}
-                                                  
-        GNU, Debian, Xfce and Kernel ${sysname} ${kernel} 
-               
-       ${execi 1000 cat /proc/cpuinfo |grep 'model name'|sort -u|awk -F: '{ print $2; }'|awk -F: \ '{print $1}'}  (${freq_g cpu0}GHz)
-        CPU Average:  ${cpu cpu0}%      ${cpugraph 9,190 00000 00000}
+
+${font Goudy Bookletter 1911:style=Bold}Tammuz${font}       Kernel ${sysname} ${kernel}                
+       
+     ${execi 1000 cat /proc/cpuinfo |grep 'model name'|sort -u|awk -F: '{ print $2; }'|awk -F: \ '{print $1}'} ${alignr}${freq_g cpu0}GHz
+      ${font PizzaDude Bullets:size=14}${font}CPU Average:  ${cpu cpu0}%${alignr}${cpugraph 9,280 00000 00000}
         
-        CPU1:   ${cpu cpu1}%       CPU2:  ${cpu cpu2}%       CPU3:   ${cpu cpu3}%       CPU4:  ${cpu cpu4}%
-        CPU5:   ${cpu cpu5}%       CPU6:  ${cpu cpu6}%       CPU7:   ${cpu cpu7}%       CPU8:  ${cpu cpu8}%
+      CPU1:   ${cpu cpu1}%           CPU2:  ${cpu cpu2}%           CPU3:   ${cpu cpu3}%           CPU4:  ${cpu cpu4}%
+      ${font PizzaDude Bullets:size=14}${font}CPU5:   ${cpu cpu5}%           CPU6:  ${cpu cpu6}%           CPU7:   ${cpu cpu7}%           CPU8:  ${cpu cpu8}%
 #Freq1:  ${freq_g cpu1} GHz          Freq2:  ${freq_g cpu2} GHz
 
-${font}        RAM(${memmax}):   $memperc%  ${membar 8,60} ${alignr}  SWAP: $swapperc%   //   T: ${acpitemp}ºC     
-${font PizzaDude Bullets:size=9}${font}${font}        Free space: ${fs_free /} / ${fs_size /} ${alignr} Uptime: ${uptime}    
+      RAM    ${memmax}    $memperc%  ${membar 8,60}${alignr}SWAP  $swapperc%     //     T = ${acpitemp}ºC
+${font PizzaDude Bullets:size=14}${font}      Free space    ${fs_free /}  /  ${fs_size /}${alignr}Uptime  ${uptime}
 
 ${font Goudy Bookletter 1911:style=Bold}Weather forecast${font}
 
-                                 ${font :style=Bold}${time %H}:${time %M}${font}  -  ${time %A}, ${time %B} ${time %e}, ${time %Y}
+                                               ${font :style=Bold}${time %H}:${time %M}${font}  -  ${time %A}, ${time %B} ${time %e}, ${time %Y}
             
-                 # Localización, descripcion y temperatura
-                 ${execi 60 grep "temperature" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4 | awk '{print int($1+0.5)}'}ºC - ${execi 60 grep "symbol" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4 | tr [[:lower:]] [[:upper:]]}  - Humidity ${execi 60 grep "humidity" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f2}%
+                         # Localización, descripcion y temperatura
+                         ${execi 60 grep "temperature" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4 | awk '{print int($1+0.5)}'}ºC - ${execi 60 grep "symbol" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4 | tr [[:lower:]] [[:upper:]]}  - Humidity ${execi 60 grep "humidity" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f2}%
 
-                 # Humedad y viento
-                 ${execi 60 grep "windSpeed" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4} - ${execi 60 grep "windSpeed" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f2 | awk '{print int($1*3.6)}'} Km/h
+                         # Humedad y viento
+                         ${execi 60 grep "windSpeed" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4} - ${execi 60 grep "windSpeed" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f2 | awk '{print int($1*3.6)}'} Km/h
                             
 #Imagen hoy
-${execi 1 cp -f ~/.conky-open-weather0/$(grep "var" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f6).png ~/.cache/weather.png}${image ~/.cache/weather.png -p 30,210 -s 70x70 -n}
+${execi 1 cp -f ~/.conky-open-weather0/$(grep "var" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f6).png ~/.cache/weather.png}${image ~/.cache/weather.png -p 60,230 -s 70x70 -n}
 #Imprime los dias
-${goto 30}${execi 3000 date --date="1 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 125}${execi 3000 date --date="2 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 220}${execi 3000 date --date="3 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 315}${execi 3000 date --date="4 day" | cut -c1-4 | tr [[:lower:]] [[:upper:]]}
+${goto 40}${execi 3000 date --date="1 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 160}${execi 3000 date --date="2 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 280}${execi 3000 date --date="3 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 400}${execi 3000 date --date="4 day" | cut -c1-4 | tr [[:lower:]] [[:upper:]]}
 
 ## Day
-${goto 30}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 125}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 220}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 315}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f2 | cut -d'.' -f1}ºC ${alignr}
+${goto 40}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 160}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 280}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 400}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f2 | cut -d'.' -f1}ºC ${alignr}
 
 ## Night
-${goto 30}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 125}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 220}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 315}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f8 | cut -d'.' -f1}ºC ${alignr}
+${goto 40}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 160}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 280}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 400}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f8 | cut -d'.' -f1}ºC ${alignr}
 #Iconos de los dias
-${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f6).png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 46,320 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f6).png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 140,320 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f6).png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 234,320 -s 50x50 -n} ${execi 60 cp -f ~/.conky-google-now1/$(grep "symbol" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f6).png ~/.cache/weather-4.png}${image ~/.cache/weather-4.png -p 328,320 -s 50x50 -n}
+${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f6).png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 65,350 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f6).png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 185,350 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f6).png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 305,350 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f6).png ~/.cache/weather-4.png}${image ~/.cache/weather-4.png -p 425,350 -s 50x50 -n}
+${font Goudy Bookletter 1911:style=Bold}Network${font}${alignr}PING = ${execi 60 ping www.google.com -c 1 | grep time= | rev | cut -c -7 | rev}                    IP = ${execi 500 wget http://ipinfo.io/ip -qO -}
 
-${font Goudy Bookletter 1911:style=Bold}Network${font}      PING = ${execi 60 ping www.google.com -c 1 | grep time= | rev | cut -c -7 | rev}      IP = ${execi 180 wget http://ipinfo.io/ip -qO -}
+${font PizzaDude Bullets:size=9}${font}       D tot: ${totaldown eno1} ${alignr} D: ${downspeed eno1} ${alignr} ${downspeedgraph eno1 8,120 000000 000000}
+${font PizzaDude Bullets:size=14}${font}       U tot: ${totalup eno1} ${alignr} U: ${upspeed eno1} ${alignr} ${upspeedgraph eno1 8,120 000000 000000}
 
-${font PizzaDude Bullets:size=9}${font}        D tot: ${totaldown eno1} ${alignr} D: ${downspeed eno1} ${alignr} ${downspeedgraph eno1 8,60 000000 000000}
-${font PizzaDude Bullets:size=9}${font}        U tot: ${totalup eno1} ${alignr} U: ${upspeed eno1} ${alignr} ${upspeedgraph eno1 8,60 000000 000000}
+${font PizzaDude Bullets:size=9}${font}${execpi 1800 speedtest-cli | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/       /g' | sed ':a;N;$!ba;s/\n       Upload/${alignr}Upload/g' | sed 's/Download/${font PizzaDude Bullets:size=14}${font}Download/g' }
 
-${font}${execi 1800 speedtest-cli | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/        /g' | sed ':a;N;$!ba;s/\n        Upload/                   Upload/g'}
+${font Goudy Bookletter 1911:style=Bold}Processes${font}                   Total = ${processes}
 
-${font Goudy Bookletter 1911:style=Bold}Processes${font}       (${processes})
+       CPU      1                          ${top name 1} $alignr ${top cpu 1}%
+       ${font PizzaDude Bullets:size=9}${font}            2                          ${top name 2} $alignr ${top cpu 2}%
+       ${font PizzaDude Bullets:size=9}${font}            3                          ${top name 3} $alignr ${top cpu 3}%
+       ${font PizzaDude Bullets:size=9}${font}            4                          ${top name 4} $alignr ${top cpu 4}%
 
-        NAME   $alignr PID               CPU
-            ${top name 1} $alignr ${top pid 1}         ${top cpu 1}%
-            ${top name 2} $alignr ${top pid 2}         ${top cpu 2}%
-            ${top name 3} $alignr ${top pid 3}         ${top cpu 3}%
-            ${top name 4} $alignr ${top pid 4}         ${top cpu 4}%
-
-        NAME   $alignr PID              RAM
-            ${top_mem name 1} $alignr ${top_mem pid 1}         ${top_mem mem 1}%
-            ${top_mem name 2} $alignr ${top_mem pid 2}         ${top_mem mem 2}%
-            ${top_mem name 3} $alignr ${top_mem pid 3}         ${top_mem mem 3}%
-            ${top_mem name 4} $alignr ${top_mem pid 4}         ${top_mem mem 4}%
-
-${font Goudy Bookletter 1911:style=Bold}Dropbox${font}
-
-${execi 10 dropbox status | sed 's/^/        /g'}
+       RAM      1                          ${top_mem name 1} $alignr ${top_mem mem 1}%
+       ${font PizzaDude Bullets:size=9}${font}            2                          ${top_mem name 2} $alignr ${top_mem mem 2}%
+       ${font PizzaDude Bullets:size=9}${font}            3                          ${top_mem name 3} $alignr ${top_mem mem 3}%
+       ${font PizzaDude Bullets:size=9}${font}            4                          ${top_mem name 4} $alignr ${top_mem mem 4}%
+ 
+${font Goudy Bookletter 1911:style=Bold}Dropbox status:${font}    ${execi 1 dropbox status | sed 's/^/        /g'}
            
 ${font Goudy Bookletter 1911:style=Bold}News${font}  
 
-	   ${rss http://www.eldiario.es/rss/ 10 item_title 1}
-       ${rss http://www.eldiario.es/rss/ 10 item_title 2}
-       ${rss http://www.eldiario.es/rss/ 10 item_title 3}
-
-       ${rss http://www.publico.es/rss/ 10 item_title 1}
-       ${rss http://www.publico.es/rss/ 10 item_title 2}
-       ${rss http://www.publico.es/rss/ 10 item_title 3}
-        
-SET WEATHER API AND THE CALENDAR
+       ${rss http://www.eldiario.es/rss/ 10 item_title 1}
+       ${font PizzaDude Bullets:size=12}${font}${rss http://www.eldiario.es/rss/ 10 item_title 2}
+       ${font PizzaDude Bullets:size=12}${font}${rss http://www.eldiario.es/rss/ 10 item_title 3}
+       ${font PizzaDude Bullets:size=16}${font}${rss http://www.publico.es/rss/ 10 item_title 1}
+       ${font PizzaDude Bullets:size=12}${font}${rss http://www.publico.es/rss/ 10 item_title 2}
+       ${font PizzaDude Bullets:size=12}${font}${rss http://www.publico.es/rss/ 10 item_title 3}
 
 ${font Goudy Bookletter 1911:style=Bold}Calendar${font} 
-         
-${font DejaVu Sans Mono:size=8}${execi 3500 gcalcli agenda --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
+
+${execpi 10 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g'}
 
 #Pilla los datos del tiempo de internet
 
-${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=XXXX" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
+${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
 
 ${execi 60 if grep --quiet weatherdata ~/.cache/weather_current_aux.xml; then cp ~/.cache/weather_current_aux.xml ~/.cache/weather_current.xml; fi}  
 
-${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Madrid,ES&units=metric&mode=xml&appid=XXXX" | xmllint --format - > ~/.cache/weather_aux.xml} 
+${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_aux.xml} 
 
 ${execi 60 if grep --quiet weatherdata ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}  
 

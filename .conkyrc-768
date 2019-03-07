@@ -85,16 +85,16 @@ override_utf8_locale yes
 use_spacer none
 
 TEXT
-${font Goudy Bookletter 1911:style=Bold}Aspire${font}       (${sysname} ${kernel})                
+${font Goudy Bookletter 1911:style=Bold}Aspire${font}       Kernel ${sysname} ${kernel}                
        
-       ${font PizzaDude Bullets:size=9}${font}${execi 1000 cat /proc/cpuinfo |grep 'model name'|sort -u|awk -F: '{ print $2; }'|awk -F: \ '{print $1}'}  (${freq_g cpu0}GHz)
+       ${execi 1000 cat /proc/cpuinfo |grep 'model name'|sort -u|awk -F: '{ print $2; }'|awk -F: \ '{print $1}'}  (${freq_g cpu0}GHz)
         ${font PizzaDude Bullets:size=9}${font}CPU Average:  ${cpu cpu0}%${alignr}${cpugraph 9,180 00000 00000}        
         
-        ${font PizzaDude Bullets:size=9}${font}CPU1:   ${cpu cpu1}%       CPU2:  ${cpu cpu2}%       CPU3:   ${cpu cpu3}%       CPU4:  ${cpu cpu4}%
+        CPU1:   ${cpu cpu1}%       CPU2:  ${cpu cpu2}%       CPU3:   ${cpu cpu3}%       CPU4:  ${cpu cpu4}%
         ${font PizzaDude Bullets:size=9}${font}CPU5:   ${cpu cpu5}%       CPU6:  ${cpu cpu6}%       CPU7:   ${cpu cpu7}%       CPU8:  ${cpu cpu8}%
 #Freq1:  ${freq_g cpu1} GHz          Freq2:  ${freq_g cpu2} GHz
 
-${font PizzaDude Bullets:size=9}${font}        RAM(${memmax}):   $memperc%  ${membar 8,60}${alignr}SWAP: $swapperc%   //   T: ${acpitemp}ºC        
+        RAM(${memmax}):   $memperc%  ${membar 8,60}${alignr}SWAP: $swapperc%   //   T: ${acpitemp}ºC        
 ${font PizzaDude Bullets:size=9}${font}        Free space: ${fs_free /} / ${fs_size /}${alignr}Uptime: ${uptime}        
 
 ${font Goudy Bookletter 1911:style=Bold}Weather forecast${font}
@@ -121,26 +121,23 @@ ${font}        IP = ${execi 500 wget http://ipinfo.io/ip -qO -}${alignr}Local IP
 ${font PizzaDude Bullets:size=9}${font}        D tot: ${totaldown wlp3s0} ${alignr} D: ${downspeed wlp3s0} ${alignr} ${downspeedgraph wlp3s0 8,60 000000 000000}        
 ${font PizzaDude Bullets:size=9}${font}        U tot: ${totalup wlp3s0} ${alignr} U: ${upspeed wlp3s0} ${alignr} ${upspeedgraph wlp3s0 8,60 000000 000000}        
 
-${font PizzaDude Bullets:size=9}${font}${execpi 1800 speedtest-cli | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/        /g' | sed ':a;N;$!ba;s/\n        Upload/                                 Upload/g' | sed 's/Download/${font PizzaDude Bullets:size=9}${font}Download/g' }
+${font PizzaDude Bullets:size=9}${font}${execpi 1800 speedtest-cli | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/        /g' | sed ':a;N;$!ba;s/\n        Upload/${alignr}Upload/g' | sed 's/Download/${font PizzaDude Bullets:size=14}${font}Download/g' }
 
 ${font Goudy Bookletter 1911:style=Bold}Processes${font}        Total = ${processes}
        
-            ${font PizzaDude Bullets:size=9}${font}CPU 1                ${top name 1} $alignr ${top pid 1}         ${top cpu 1}%        
-            ${font PizzaDude Bullets:size=9}${font}        2                ${top name 2} $alignr ${top pid 2}         ${top cpu 2}%        
-            ${font PizzaDude Bullets:size=9}${font}RAM 1                ${top_mem name 1} $alignr ${top_mem pid 1}         ${top_mem mem 1}%        
-            ${font PizzaDude Bullets:size=9}${font}        2                ${top_mem name 2} $alignr ${top_mem pid 2}         ${top_mem mem 2}%        
+            CPU      1                          ${top name 1} $alignr ${top cpu 1}%
+            ${font PizzaDude Bullets:size=9}${font}            2                          ${top name 2} $alignr ${top cpu 2}%
+            RAM      1                          ${top_mem name 1} $alignr ${top_mem mem 1}%
+            ${font PizzaDude Bullets:size=9}${font}            2                          ${top_mem name 2} $alignr ${top_mem mem 2}%   
    
 ${font Goudy Bookletter 1911:style=Bold}Dropbox:${font}    ${execi 10 dropbox status | sed 's/^/        /g'}
                
-${font Goudy Bookletter 1911:style=Bold}Noticias${font}  
+${font Goudy Bookletter 1911:style=Bold}News${font}  
 
-        ${font PizzaDude Bullets:size=9}${font}${rss http://www.eldiario.es/rss/ 10 item_title 1}
+        ${rss http://www.eldiario.es/rss/ 10 item_title 1}
         ${font PizzaDude Bullets:size=9}${font}${rss http://www.eldiario.es/rss/ 10 item_title 2}
 
-${font Goudy Bookletter 1911:style=Bold}Calendar${font} 
-${font DejaVu Sans Mono:size=8}${execpi 10 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples  agenda --military | sed 's/^/     /g'}${font}
-
-#OLD ${font DejaVu Sans Mono:size=8}${execi 3000 gcalcli agenda --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples --military --nocolor | sed '/^$/d' | sed 's/^/     /g'}${font}
+${execpi 10 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g'}
 
 #Pilla los datos del tiempo de internet
 
