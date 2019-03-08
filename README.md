@@ -12,10 +12,17 @@ Since Yahoo Weather dropped support for API v1 and now a key is needed I change 
 
 This service also need key but is very easy to get one.
 
-| Version | Details | Name |
+| Weather API | System | Resolution | Color | Name | Status
 |-|-|-|
-| Yahoo weather  | Not working | .conkyrc-LEGACY |
-| OpenWeatherMap | 1080p       | .conkyrc-NNNN
+| Yahoo weather  | Debian 9 Xfce | 1080p | Black | .conkyrc-LEGACY-1080 | Not working |
+|   | Ubuntu Xfce   | 768p  | White | .conkyrc-LEGACY-768  | Not working |
+| OpenWeatherMap | Debian 9 Xfce | 1080p | Black | .conkyrc-1080        | OK |
+|  | Ubuntu GNOME3 | 768p  | Black | .conkyrc-768-black   | OK |
+|  | Ubuntu Xfce   | 768p  | White | .conkyrc-768-white   | OK |
+
+
+|  | 768p & White       | .conkyrc-768-white   |
+|  | 768p & Black       | .conkyrc-768-black   |
 
 [Conky config guide (in spanish)](https://github.com/manurs/dotfiles/wiki/Configurar-conky-en-nuevo-equipo)
 
