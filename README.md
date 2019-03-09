@@ -17,7 +17,7 @@ This service also need key but is very easy to get one.
 | Yahoo weather  | Debian 9 - Xfce | 1080p | Black | .conkyrc-LEGACY-1080 | Not working |
 |   | Xubuntu 16.04 - Xfce   | 768p  | White | .conkyrc-LEGACY-768  | Not working |
 | OpenWeatherMap | Debian 9 - Xfce | 1080p | Black | .conkyrc-1080        | OK |
-|  | Ubuntu - GNOME 3 | 768p  | Black | .conkyrc-768-black   | OK |
+|  | Ubuntu 18.04 - GNOME 3 | 768p  | Black | .conkyrc-768-black   | OK |
 |  | Xubuntu 16.04 - Xfce   | 768p  | White | .conkyrc-768-white   | OK |
 
 [Conky config guide (in spanish)](https://github.com/manurs/dotfiles/wiki/Configurar-conky-en-nuevo-equipo)
