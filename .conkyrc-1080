@@ -109,18 +109,19 @@ ${font Goudy Bookletter 1911:style=Bold}Weather forecast${font}
                          ${execi 300 grep "windSpeed" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f4} - ${execi 300 grep "windSpeed" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f2 | awk '{print int($1*3.6)}'} Km/h
                             
 #Imagen hoy
-${execi 300 cp -f ~/.conky-open-weather0/$(grep "var" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f6).png ~/.cache/weather.png}${image ~/.cache/weather.png -p 60,230 -s 70x70 -n}
+${execi 60 cp -f ~/.conky-open-weather0/$(grep "var" ~/.cache/weather_current.xml | head -n 1 | cut -d'"' -f6).png ~/.cache/weather.png}${image ~/.cache/weather.png -p 60,230 -s 70x70 -n}
 #Imprime los dias
 ${goto 40}${execi 1000 date --date="1 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 160}${execi 1000 date --date="2 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 280}${execi 1000 date --date="3 day" | cut -c1-4 |tr [[:lower:]] [[:upper:]]}${goto 400}${execi 1000 date --date="4 day" | cut -c1-4 | tr [[:lower:]] [[:upper:]]}
 
 ## Day
-${goto 40}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 160}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 280}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 400}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f2 | cut -d'.' -f1}ºC ${alignr}
+${goto 40}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 160}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 280}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f2 | cut -d'.' -f1}ºC${goto 400}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f2 | cut -d'.' -f1}ºC ${alignr}
 
 ## Night
-${goto 40}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 160}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 280}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 400}${execi 1000 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f8 | cut -d'.' -f1}ºC ${alignr}
+${goto 40}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 160}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 280}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f8 | cut -d'.' -f1}ºC${goto 400}${execi 60 grep "temperature" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f8 | cut -d'.' -f1}ºC ${alignr}
 #Iconos de los dias
-${execi 1000 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f6).png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 65,350 -s 50x50 -n} ${execi 1000 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f6).png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 185,350 -s 50x50 -n} ${execi 1000 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f6).png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 305,350 -s 50x50 -n} ${execi 1000 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f6).png ~/.cache/weather-4.png}${image ~/.cache/weather-4.png -p 425,350 -s 50x50 -n}
-${font PizzaDude Bullets:size=18}${font Goudy Bookletter 1911:style=Bold}Network${font}${alignr}PING = ${execi 60 ping www.google.com -c 1 | grep time= | cut -d'=' -f4}                    IP = ${execi 600 wget http://ipinfo.io/ip -qO -}
+${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 2p | cut -d'"' -f6).png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 65,350 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 3p | cut -d'"' -f6).png ~/.cache/weather-2.png}${image ~/.cache/weather-2.png -p 185,350 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 4p | cut -d'"' -f6).png ~/.cache/weather-3.png}${image ~/.cache/weather-3.png -p 305,350 -s 50x50 -n} ${execi 60 cp -f ~/.conky-open-weather0/$(grep "symbol" ~/.cache/weather.xml | sed -n 5p | cut -d'"' -f6).png ~/.cache/weather-4.png}${image ~/.cache/weather-4.png -p 425,350 -s 50x50 -n}
+${font PizzaDude Bullets:size=18}${font Goudy Bookletter 1911:style=Bold}Network${font}${alignr}PING = ${execi 60 ping www.google.com -c 1 | grep time= | cut -d'=' -f4}                    IP = ${execi 600 wget https://api.ipify.org/ -qO -}
+#${execi 600 wget http://ipinfo.io/ip -qO -}
 
 ${font PizzaDude Bullets:size=9}${font}       D tot: ${totaldown eno1} ${alignr}D: ${downspeed eno1}  ${downspeedgraph eno1 8,110 000000 000000}
 ${font PizzaDude Bullets:size=14}${font}       U tot: ${totalup eno1} ${alignr}U: ${upspeed eno1}   ${upspeedgraph eno1 8,110 000000 000000}
@@ -156,13 +157,13 @@ ${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" 
 
 #Pilla los datos del tiempo de internet
 
-${execi 300 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
+${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
 
-${execi 200 if grep --quiet weatherdata ~/.cache/weather_current_aux.xml; then cp ~/.cache/weather_current_aux.xml ~/.cache/weather_current.xml; fi}  
+${execi 60 if grep --quiet weatherdata ~/.cache/weather_current_aux.xml; then cp ~/.cache/weather_current_aux.xml ~/.cache/weather_current.xml; fi}  
 
-${execi 1000 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_aux.xml} 
+${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_aux.xml} 
 
-${execi 800 if grep --quiet weatherdata ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}  
+${execi 60 if grep --quiet weatherdata ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}  
 
         
         
