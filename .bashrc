@@ -154,7 +154,8 @@ alias matlab='./matlab/bin/matlab'
 alias notificaciones='/usr/bin/python3 an2linuxserver.py'
 alias conky='pythonsys && nohup conky > salida_conky.txt &'
 alias initjupyter='nohup jupyter-notebook > salida_jupyter.txt &'
-alias manuinicion='initjupyter && conky'
+alias initjupyterlab='nohup jupyter-lab > salida_jupyter_lab.txt &'
+alias manuinicios='initjupyterlab && conky'
 alias android-studio="nohup sh /home/manur/android-studio/bin/studio.sh > android-studio.txt &"
 alias di="espeak -v spanish"
 #python
@@ -171,6 +172,9 @@ alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #para que en xfce se vea el icono
 alias manudropbox_new='dropbox stop && dbus-launch dropbox start' #para que en xfce se vea el icono
 alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no queremos usarlos normalmente
+
+#julia
+export PATH="/usr/local/bin/julia:$PATH"
 
 #########################
 
@@ -226,8 +230,8 @@ cambiarpython3
 #########################
 ##        ALBERT        ##
 #########################
-nohup albert > /dev/null 2>&1&
-disown
+#nohup albert > /dev/null 2>&1&
+#disown
 
 #######################
 ## MARIO DANDO POR   ##
