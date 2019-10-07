@@ -172,6 +172,9 @@ alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #para que en xfce se vea el icono
 alias manudropbox_new='dropbox stop && dbus-launch dropbox start' #para que en xfce se vea el icono
 alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no queremos usarlos normalmente
+#wifi
+alias wifi='sudo killall nm-applet; nohup nm-applet > /dev/null &'
+alias wifi_restart='sudo systemctl restart network-manager.service'
 
 #julia
 export PATH="/usr/local/bin/julia:$PATH"
@@ -184,6 +187,7 @@ export PATH="/usr/local/bin/julia:$PATH"
 echo -e "\033[1;37m"
 
 randimgvar="$(($RANDOM%9))"
+
 
 if (($randimgvar==0)); then
   bash .invaders1.sh
@@ -216,25 +220,10 @@ echo -e "\e[1;37m Bienvenido Manu"
 echo
 cambiarpython3
 
-#########################
-##        COSAS        ##
-#########################
-
-# added by Anaconda2 4.2.0 installer
-#export PATH="/home/manu/anaconda2/bin:$PATH"
-
-#if [[ $TERMINIX_ID ]]; then
-#        source /etc/profile.d/vte.sh
-#fi
-
-#########################
-##        ALBERT        ##
-#########################
-#nohup albert > /dev/null 2>&1&
-#disown
-
 #######################
 ## MARIO DANDO POR   ##
 ##	CULO	     ##
 ######################
 #yasiti
+
+alias sshh='ssh -Y -C -p123 ey@url'
