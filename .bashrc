@@ -139,7 +139,7 @@ alias agenda='pythonsys && gcalcli agenda --calendar "Eventos y citas" --calenda
 alias tron='ssh sshtron.zachlatta.com'
 #i3
 alias manui3salir='i3-msg exit'
-alias manui3lock='i3lock --image="/home/manu/Dropbox/Otros/fondos/wall1600x1200.png"'
+alias manui3lock='i3lock --image="/home/$USER/Dropbox/Otros/fondos/wall1600x1200.png"'
 #Brillo
 alias bup='sudo bash .bup.sh'
 alias bdown='sudo bash .bdown.sh'
@@ -155,19 +155,18 @@ alias notificaciones='/usr/bin/python3 an2linuxserver.py'
 alias conky='pythonsys && nohup conky > salida_conky.txt &'
 alias initjupyter='nohup jupyter-notebook > salida_jupyter.txt &'
 alias initjupyterlab='nohup jupyter-lab > salida_jupyter_lab.txt &'
-alias manuinicios='initjupyterlab && conky'
-alias android-studio="nohup sh /home/manur/android-studio/bin/studio.sh > android-studio.txt &"
+alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no queremos usarlos normalmente
+alias android-studio="nohup sh /home/$USER/android-studio/bin/studio.sh > android-studio.txt &"
 alias di="espeak -v spanish"
 #python
 alias pythonsys='export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'
-alias cambiarpython2='alias py=python2 && alias python=python2 && export PATH="/home/manur/anaconda3/envs/anaconda2/bin:$PATH" && auxpyPS1_2'
-alias cambiarpython3='alias py=python3 && alias python=python3 && export PATH="/home/manur/anaconda3/bin:$PATH" && auxpyPS1_3'
-#colores_port
-alias auxpyPS1_2="PS1='\[\e[1;37m\]\[\e[46m\] \u@\h \[\e[1;37m\]\[\e[44m\] py2 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
-alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[46m\] \u@\h \[\e[1;37m\]\[\e[45m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
-#colores_mesa
-alias auxpyPS1_2="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[46m\] py2 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
-alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
+#alias cambiarpython2='alias py=python2 && alias python=python2 && export PATH="/home/$USER/anaconda3/envs/anaconda2/bin:$PATH" && auxpyPS1_2'
+#alias cambiarpython3='alias py=python3 && alias python=python3 && export PATH="/home/$USER/anaconda3/bin:$PATH" && auxpyPS1_3'
+alias cambiarpython2='alias py=python2 && alias python=python2 && auxpyPS1_2'
+alias cambiarpython3='alias py=python3 && alias python=python3 && auxpyPS1_3'
+#colores
+alias auxpyPS1_2="PS1='\[\e[1;37m\]\[\e[44m\] \u@\h \[\e[1;37m\]\[\e[45m\] py2 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
+alias auxpyPS1_3="PS1='\[\e[1;37m\]\[\e[44m\] \u@\h \[\e[1;37m\]\[\e[46m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[0;37m\]\[\e[49m\] \n\[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '"
 #para pequeño
 alias manudropbox='dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start' #para que en xfce se vea el icono
 alias manudropbox_new='dropbox stop && dbus-launch dropbox start' #para que en xfce se vea el icono
@@ -176,18 +175,14 @@ alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no quere
 alias wifi='sudo killall nm-applet; nohup nm-applet > /dev/null &'
 alias wifi_restart='sudo systemctl restart network-manager.service'
 
-#julia
-export PATH="/usr/local/bin/julia:$PATH"
-
 #########################
 
 #########################
 ##       PORTADAS      ##
 #########################
 echo -e "\033[1;37m"
-
 randimgvar="$(($RANDOM%9))"
-
+#randimgvar=9
 
 if (($randimgvar==0)); then
   bash .invaders1.sh
@@ -205,20 +200,13 @@ elif (($randimgvar==6)); then
   figlet "       Manu    @    Aspire"
 elif (($randimgvar==7)); then
   figlet "       GNU    -    Linux"
-else
+elif (($randimgvar==8)); then
   figlet "       Ubuntu"
 fi
 
 echo
 echo -e "\e[1;37m Bienvenido Manu"
-
-##################################
-##  PALETA DE COLORES Y PYTHON  ##
-##################################
-#PS1=' \[\e[1;31m\]\u\[\e[m\]\[\e[1;34m\]@\[\e[m\]\[\e[1;33m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;34m\]\$\[\e[m\]\[\e[m\]\[\e[0;32m\] '
-#PS1='\[\e[1;37m\]\[\e[45m\] \u@\h \[\e[1;37m\]\[\e[44m\] py3 \[\e[1;37m\]\[\e[41m\] \w \[\e[1;37m\]\[\e[42m\] > \[\e[0;37m\]\[\e[49m\] '
 echo
-cambiarpython3
 
 #######################
 ## MARIO DANDO POR   ##
@@ -226,4 +214,16 @@ cambiarpython3
 ######################
 #yasiti
 
+# SSH
 alias sshh='ssh -Y -C -p123 ey@url'
+
+# CONDA STUFF
+
+# PYTHON
+export PATH="/home/$USER/miniconda3/bin:$PATH"
+
+# JULIA
+export PATH="/usr/local/bin/julia:$PATH"
+
+# FIN
+cambiarpython3
