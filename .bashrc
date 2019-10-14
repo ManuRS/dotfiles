@@ -123,6 +123,8 @@ fi
 
 #Terminal
 alias fuck='sudo $(history -p \!\!)'
+alias lock='xflock4'
+alias l='lock'
 alias q='exit'
 alias c='clear'
 alias m='make'
@@ -223,7 +225,7 @@ alias sshh='ssh -Y -C -p123 ey@url'
 export PATH="/home/$USER/miniconda3/bin:$PATH"
 
 # JULIA
-export PATH="/usr/local/bin/julia:$PATH"
+export PATH="/home/$USER/julia-1.2.0/bin:$PATH"
 
 # FIN
 cambiarpython3
