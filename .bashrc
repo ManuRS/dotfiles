@@ -134,10 +134,10 @@ alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 alias musica='mocp'
-alias cal='pythonsys && gcalcli calw 2 --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && cambiarpython3'
-alias cal4='pythonsys && gcalcli calw 4 --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && cambiarpython3'
-alias calm='pythonsys && gcalcli calm --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && cambiarpython3'
-alias agenda='pythonsys && gcalcli agenda --calendar "Eventos y citas" --calendar Cosillas --military && cambiarpython3'
+alias cal='pythonsys && gcalcli calw 2 --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && path_reset'
+alias cal4='pythonsys && gcalcli calw 4 --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && path_reset'
+alias calm='pythonsys && gcalcli calm --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && path_reset'
+alias agenda='pythonsys && gcalcli agenda --calendar "Eventos y citas" --calendar Cosillas --military && path_reset'
 alias tron='ssh sshtron.zachlatta.com'
 #i3
 alias manui3salir='i3-msg exit'
@@ -224,8 +224,11 @@ alias sshh='ssh -Y -C -p123 ey@url'
 # PYTHON
 export PATH="/home/$USER/miniconda3/bin:$PATH"
 
-# JULIA
-export PATH="/home/$USER/julia-1.2.0/bin:$PATH"
+# JULIA INSTALL
+julia_v=1.2.0
+export PATH="/home/$USER/julia-$julia_v/bin:$PATH"
 
 # FIN
 cambiarpython3
+PATH_BK=$PATH
+alias path_reset='PATH=$PATH_BK'
