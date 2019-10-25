@@ -146,8 +146,7 @@ ${font Goudy Bookletter 1911:style=Bold}News${font}
 
 ${font Goudy Bookletter 1911:style=Bold}Calendar${font}  
 
-${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=9}${font DejaVu Sans Mono:size=8}    /g' | sed 's/             /    /g'}    
-
+${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=9}${font DejaVu Sans Mono:size=8}    /g' | sed 's/                             /                  /g' | sed 's/.[0-9]             /    /g'}    
 #Pilla los datos del tiempo de internet
 
 ${execi 300 curl "https://api.openweathermap.org/data/2.5/forecast?q=Trieste,IT&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
