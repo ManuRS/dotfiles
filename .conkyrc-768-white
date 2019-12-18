@@ -99,7 +99,7 @@ ${font Goudy Bookletter 1911:style=Bold}ProBook${font}${alignr} Xubuntu & Xfce
       ${font PizzaDude Bullets:size=11}${font}Battery   ${battery_percent BAT0}%   ${battery_bar 8,90 BAT0} ${alignr} Temperature  ${acpitemp}ºC    
 
 
-${font Goudy Bookletter 1911:style=Bold}Trieste weather forecast${font}
+${font Goudy Bookletter 1911:style=Bold}Madrid weather forecast${font}
 
                                  ${font PizzaDude Bullets:size=9}${font}${font :style=Bold}${time %H}:${time %M}${font}${alignr}${execi 1000 date +"%^A, %e de %^B de %Y"}    
                  # Localización, descripcion y temperatura
@@ -150,11 +150,11 @@ ${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" 
 
 #Pilla los datos del tiempo de internet
 
-${execi 300 curl "https://api.openweathermap.org/data/2.5/forecast?q=Trieste,IT&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
+${execi 300 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
 
 ${execi 200 if grep --quiet weatherdata ~/.cache/weather_current_aux.xml; then cp ~/.cache/weather_current_aux.xml ~/.cache/weather_current.xml; fi}  
 
-${execi 1000 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Trieste,IT&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_aux.xml} 
+${execi 1000 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_aux.xml} 
 
 ${execi 800 if grep --quiet weatherdata ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}  
 
