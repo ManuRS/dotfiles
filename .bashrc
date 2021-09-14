@@ -134,11 +134,21 @@ alias weather='curl wttr.in'
 alias tiempo='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 alias musica='mocp'
+
+#Gcalcli py2
 alias cal='pythonsys && gcalcli calw 2 --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && path_reset'
 alias cal4='pythonsys && gcalcli calw 4 --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && path_reset'
 alias calm='pythonsys && gcalcli calm --monday --calendar "Eventos y citas" --calendar Cosillas --military -w 10 && path_reset'
 alias agenda='pythonsys && gcalcli agenda --calendar "Eventos y citas" --calendar Cosillas --military && path_reset'
+
+#Gcalcli py3
+alias cal='aux=$(date +%d) && gcalcli --calendar General --calendar Cosillas calw $aux 2 --monday --military -w 16'
+alias cal4='aux=$(date +%d) && gcalcli --calendar General --calendar Cosillas calw $aux 4 --monday --military -w 16'
+alias calm='gcalcli --calendar General --calendar Cosillas calm --monday --military -w 16'
+alias agenda='gcalcli --calendar General --calendar Cosillas agenda --military'
+
 alias tron='ssh sshtron.zachlatta.com'
+
 #i3
 alias manui3salir='i3-msg exit'
 alias manui3lock='i3lock --image="/home/$USER/Dropbox/Otros/fondos/wall1600x1200.png"'
@@ -154,7 +164,7 @@ alias loginjupyter='cat salida_jupyter.txt | grep "login"'
 alias initv='sudo teamviewer --daemon start'
 alias matlab='./matlab/bin/matlab'
 alias notificaciones='/usr/bin/python3 an2linuxserver.py'
-alias conky='pythonsys && nohup conky > salida_conky.txt &'
+alias conky='nohup conky > salida_conky.txt &'
 alias initjupyter='nohup jupyter-notebook > salida_jupyter.txt &'
 alias initjupyterlab='nohup jupyter-lab > salida_jupyter_lab.txt &'
 alias manuinicios='manudropbox && conky' #inicia dropbox y conky por si no queremos usarlos normalmente
