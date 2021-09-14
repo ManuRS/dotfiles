@@ -143,14 +143,14 @@ ${font Goudy Bookletter 1911:style=Bold}Dropbox status:${font}    ${execi 10 dro
            
 ${font Goudy Bookletter 1911:style=Bold}News${font}  
 
-       ${rss http://ep00.epimg.net/rss/tags/ultimas_noticias.xml 10 item_title 0}
-       ${font PizzaDude Bullets:size=12}${font}${rss http://ep00.epimg.net/rss/tags/ultimas_noticias.xml 10 item_title 1}
-       ${font PizzaDude Bullets:size=14}${font}${rss http://www.publico.es/rss/ 10 item_title 0}
-       ${font PizzaDude Bullets:size=12}${font}${rss http://www.publico.es/rss/ 10 item_title 1}
+       ${rss http://ep00.epimg.net/rss/tags/ultimas_noticias.xml 600 item_title 0}
+       ${font PizzaDude Bullets:size=12}${font}${rss http://ep00.epimg.net/rss/tags/ultimas_noticias.xml 600 item_title 1}
+       ${font PizzaDude Bullets:size=14}${font}${rss http://www.publico.es/rss/ 600 item_title 0}
+       ${font PizzaDude Bullets:size=12}${font}${rss http://www.publico.es/rss/ 600 item_title 1}
 
 ${font Goudy Bookletter 1911:style=Bold}Calendar${font} 
 
-${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar "Eventos y citas" --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g'}
+${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar General --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g'}
 
 #Pilla los datos del tiempo de internet
 
