@@ -143,8 +143,8 @@ ${font Goudy Bookletter 1911:style=Bold}Dropbox status:${font}    ${execi 10 dro
            
 ${font Goudy Bookletter 1911:style=Bold}News${font}  
 
-       ${rss http://ep00.epimg.net/rss/tags/ultimas_noticias.xml 600 item_title 0}
-       ${font PizzaDude Bullets:size=12}${font}${rss http://ep00.epimg.net/rss/tags/ultimas_noticias.xml 600 item_title 1}
+       ${rss https://www.eldiario.es/rss/ 600 item_title 0}
+       ${font PizzaDude Bullets:size=12}${font}${rss https://www.eldiario.es/rss/ 600 item_title 1}
        ${font PizzaDude Bullets:size=14}${font}${rss http://www.publico.es/rss/ 600 item_title 0}
        ${font PizzaDude Bullets:size=12}${font}${rss http://www.publico.es/rss/ 600 item_title 1}
 
