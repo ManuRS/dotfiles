@@ -147,7 +147,7 @@ ${font Goudy Bookletter 1911:style=Bold}News${font}
 
 ${font Goudy Bookletter 1911:style=Bold}Calendar${font} 
 
-${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar General --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g'}
+${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar General --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g' | sed 's/No E   vent   s Fo  und.../No events found/'}
 
 #Pilla los datos del tiempo de internet
 
