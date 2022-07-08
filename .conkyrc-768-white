@@ -148,6 +148,9 @@ ${font Goudy Bookletter 1911:style=Bold}Calendar${font}
 
 ${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar General --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=9}${font DejaVu Sans Mono:size=8}    /g' | sed 's/             /    /g' | sed 's/               /                        /g' | sed 's/\([0-9][0-9]:[0-9][0-9]\)    /\1 > /g' | sed 's/    \([0-9A-Za-z]\)/   \1/g' | sed 's/                     /                  /g'}    
 
+# Pendiente, para limpiar texto de dias sin eventos
+# | sed 's/No E   vent   s Fo  und.../No events found/'}
+
 #Pilla los datos del tiempo de internet
 
 ${execi 300 curl "https://api.openweathermap.org/data/2.5/forecast?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_current_aux.xml} 
