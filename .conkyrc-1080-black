@@ -54,15 +54,15 @@ own_window_colour black #d9d9d9 #
 color1 black
 
 # Text alignment, other possible values are commented
-#alignment top_left
-alignment top_right
+alignment top_left
+#alignment top_right
 #alignment bottom_left
 #alignment bottom_right
 
 # Gap between borders of screen and text
 # same thing as passing -x at command line
-gap_x 80
-gap_y 5
+gap_x 1300
+gap_y 0
 
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -86,12 +86,12 @@ use_spacer none
 
 TEXT
 
-${font Goudy Bookletter 1911:style=Bold}Tammuz${font} ${alignr} Debian & Xfce
+${font Goudy Bookletter 1911:style=Bold}Tammuz${font} ${alignr}
        
-     ${font} ${execi 100000 lsb_release -a | sed -n 2p | cut -f2} ${alignr} ${sysname} ${kernel}
+     ${font} ${execi 100000 lsb_release -a | sed -n 2p | cut -f2} + Xfce 4.12 ${alignr} ${sysname} ${kernel}
 
      ${execi 100000 cat /proc/cpuinfo |grep 'model name'|sort -u|awk -F: '{ print $2; }'|awk -F: \ '{print $1}'} ${alignr}${freq_g cpu0}GHz
-      ${font PizzaDude Bullets:size=14}${font}CPU Average:  ${cpu cpu0}%${alignr}${cpugraph 9,280 00000 00000}
+      ${font PizzaDude Bullets:size=14}${font}CPU Average:  ${cpu cpu0}%${alignr}${cpugraph 8,280 00000 00000}
         
       CPU1:   ${cpu cpu1}%            CPU2:  ${cpu cpu2}%            CPU3:   ${cpu cpu3}%            CPU4:  ${cpu cpu4}%
       ${font PizzaDude Bullets:size=14}${font}CPU5:   ${cpu cpu5}%            CPU6:  ${cpu cpu6}%            CPU7:   ${cpu cpu7}%            CPU8:  ${cpu cpu8}%
@@ -124,7 +124,7 @@ ${font PizzaDude Bullets:size=18}${font Goudy Bookletter 1911:style=Bold}Network
 ${font PizzaDude Bullets:size=6}${font}       D tot: ${totaldown eno1} ${alignr}D: ${downspeed eno1}  ${downspeedgraph eno1 8,110 000000 000000}
 ${font PizzaDude Bullets:size=12}${font}       U tot: ${totalup eno1} ${alignr}U: ${upspeed eno1}  ${upspeedgraph eno1 8,110 000000 000000}
 
-${execpi 1800 speedtest-cli | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/       /g' | sed ':a;N;$!ba;s/\n       Upload/${alignr}Upload/g' | sed 's/Download/${font PizzaDude Bullets:size=6}${font}Download/g' }
+${execpi 7200 speedtest-cli --secure | grep -Eo '((Testing from).*)|((Upload).*)|((Download).*)' |  sed -e "s/^Testing from //" | sed -e "s/(.*//" | sed 's/^/       /g' | sed ':a;N;$!ba;s/\n       Upload/${alignr}Upload/g' | sed 's/Download/${font PizzaDude Bullets:size=6}${font}Download/g' }
 
 ${font Goudy Bookletter 1911:style=Bold}Processes${font} $alignr Total = ${processes}
 
@@ -145,7 +145,7 @@ ${font Goudy Bookletter 1911:style=Bold}News${font}
        ${font PizzaDude Bullets:size=14}${font}${rss https://www.eldiario.es/rss/ 600 item_title 0}
        ${font PizzaDude Bullets:size=12}${font}${rss https://www.eldiario.es/rss/ 600 item_title 1}
 
-${font Goudy Bookletter 1911:style=Bold}Calendar${font} 
+${font Goudy Bookletter 1911:style=Bold}Calendar${font}
 
 ${execpi 600 gcalcli --nocolor --calendar Cosillas --calendar General --calendar Cumples  agenda --military | sed '/^$/d' | sed 's/^\(.\{19\}\)/\1  /'| sed 's/^\(.\{12\}\)/\1  /' | sed 's/^\(.\{8\}\)/\1   /' | sed 's/^\(.\{4\}\)/\1   /' | sed 's/^/${font PizzaDude Bullets:size=12}${font DejaVu Sans Mono:size=10}    /g' | sed 's/No E   vent   s Fo  und.../No events found/'}
 
@@ -157,4 +157,26 @@ ${execi 60 if grep --quiet weatherdata ~/.cache/weather_current_aux.xml; then cp
 
 ${execi 60 curl "https://api.openweathermap.org/data/2.5/forecast/daily?q=Madrid,ES&units=metric&mode=xml&appid=xxx" | xmllint --format - > ~/.cache/weather_aux.xml} 
 
-${execi 60 if grep --quiet weatherdata ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}
+${execi 60 if grep --quiet weatherdata ~/.cache/weather_aux.xml; then cp ~/.cache/weather_aux.xml ~/.cache/weather.xml; fi}  
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
